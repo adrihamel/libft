@@ -10,17 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-size_t	ft_contar(const char *str)
-{
-	size_t	n;
-
-	n = 0;
-	while (*(str + n))
-		n++;
-	return (n);
-}
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -28,8 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	j;
 	size_t	k;
 
-	j = ft_contar(src);
-	k = ft_contar(dst);
+	j = ft_strlen(src);
+	k = ft_strlen(dst);
 	i = 0;
 	while (*(src + i) && (k + i + 1) < dstsize)
 	{

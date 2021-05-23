@@ -10,15 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
 	int	n;
 
 	if (s == NULL)
-		return (-1);
+		return (0);
 	n = 0;
 	if (s)
 	{

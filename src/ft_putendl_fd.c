@@ -10,15 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (!s || fd < 0)
+	if (s == NULL || fd < 0)
 		return ;
-	while (*s != '\0')
-		write(fd, s++, 1);
-	write(fd, "\n", 1);
+	ft_putstr(s, fd);
+	ft_putchar_fd('\n', fd);
 }

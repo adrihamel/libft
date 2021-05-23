@@ -10,36 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-size_t  ft_strlen(const char *s)
-{
-	int n;
-	
-	if (s == NULL)
-		return (-1);
-	n = 0;
-	if (s)
-	{
-		while (*s != '\0')
-		{
-			n++;
-			s++;
-		}
-	}
-	return (n);
-}
-void    *ft_memcpy(void *dst, const void *src, size_t n)
-{
-	size_t              i;
-	
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		i++;
-	}
-	return (dst);
-}
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {

@@ -10,19 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*p;
 	char	*v;
-
-	p = malloc (len);
+	
+	if (s == NULL)
+		return (0);
+	p = malloc (len + 1);
 	if (p == NULL)
 		return (0);
-	else
-		v = (char *)s;
-		p = (v + start);
+	if(start >= ft_strlen(s))
+		return (ft_strdup(""));
+	v = (char *)s;
+	p = (v + start);
 	return (p);
 }

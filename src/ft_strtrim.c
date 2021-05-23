@@ -10,36 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
-char    *ft_substr(char const *s, unsigned int start, size_t len)
-  {
-      char    *p;
-     char    *v;
- 
-      p = malloc (len);
-      if (p == NULL)
-          return (0);
-      else
-          v = (char *)s;
-          p = (v + start);
-      return (p);
- }
+#include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t		size_s;
-	char		*newstring;
+	size_t	len;
+	char	*p;
 
-	if (!s1 || !set)
-		return (NULL);
-	while (*s1 && strchr(set, *s1))
+	if (s1 == NULL || set == NULL)
+		return (0);
+	while (*s1 && ft_strchr(set, *s1))
 		s1++;
-	size_s = strlen(s1);
-	while (size_s && strchr(set, s1[size_s]))
-		size_s--;
-	newstring = ft_substr((char*)s1, 0, size_s + 1);
-	return (newstring);
+	len = ft_strlen(s1);
+	while (len && ft_strchr(set, *(s1 + len)))
+		len--;
+	p = ft_substr((char*)s1, 0, len + 1);
+	return (p);
 }
