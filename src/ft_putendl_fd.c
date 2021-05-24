@@ -6,7 +6,7 @@
 /*   By: aguerrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 14:59:07 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/05/23 15:12:29 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/05/24 16:49:11 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	if (s == NULL || fd < 0)
 		return ;
-	ft_putstr(s, fd);
+	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
 }

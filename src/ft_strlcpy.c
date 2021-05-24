@@ -6,7 +6,7 @@
 /*   By: aguerrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 16:35:02 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/05/18 18:23:33 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/05/24 19:42:02 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	a;
 	size_t	b;
 
+	if (src == NULL)
+		return (0);
 	a = 0;
 	if (dstsize > 0)
 	{
@@ -27,7 +29,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		}
 	}
 	if (dstsize != 0)
-		*(dst + a) = 0;
+		*(dst + a) = '\0';
 	b = 0;
 	while (*(src + b) != '\0')
 		b++;

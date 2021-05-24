@@ -6,7 +6,7 @@
 /*   By: aguerrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 16:47:34 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/05/22 12:33:30 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/05/24 21:16:04 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t		i;
-	int		result;
+	size_t			i;
+	int				result;
 	unsigned char	*src;
 	unsigned char	*dst;
 

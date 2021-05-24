@@ -1,5 +1,2 @@
-ft_strtrim
 ft_split
 ft_itoa
-ft_strmapi
-ft_lstmap

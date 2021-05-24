@@ -6,7 +6,7 @@
 /*   By: aguerrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 18:48:01 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/05/24 16:01:47 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/05/24 17:27:20 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,11 @@ size_t	ft_strlen(const char *s)
 {
 	int	n;
 
-	if (s == NULL)
-		return (0);
 	n = 0;
-	if (s)
+	while (*s != '\0')
 	{
-		while (*s != '\0')
-		{
-			n++;
-			s++;
-		}
+		n++;
+		s++;
 	}
 	return (n);
 }
-

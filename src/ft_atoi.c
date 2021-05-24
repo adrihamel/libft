@@ -6,35 +6,37 @@
 /*   By: aguerrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 17:17:57 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/05/18 18:03:21 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:08:42 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 int	ft_atoi(const char *str)
 {
-	int	result;
-	int	sign;
-	int	cont;
+	int			sign;
+	long long	n;
 
-	result = 0;
 	sign = 1;
-	cont = 0;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
+	n = 0;
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
 		str++;
-	while ((*str == '-' || *str == '+') && cont < 1)
+	if (*str != '+' && *str != '-' && ft_isdigit((int)*str) == 0)
+		return (0);
+	if (*str == '-')
+		sign = -1;
+	if (ft_isdigit((int)*str) == 0)
+		str++;
+	if (ft_isdigit((int)*str) == 0)
+		return (0);
+	while (ft_isdigit((int)*str))
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
-		cont++;
+		n = n * 10 + *str++ - '0';
+		if ((n * sign) > INT_MAX)
+			return (-1);
+		if ((n * sign) < INT_MIN)
+			return (0);
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result *= 10;
-		result += (int)(*str - '0');
-		str++;
-	}
-	return (result * sign);
+	return (n * sign);
 }

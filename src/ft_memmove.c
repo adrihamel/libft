@@ -6,7 +6,7 @@
 /*   By: aguerrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 20:28:55 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/05/22 10:04:44 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:32:29 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (dst == NULL || src == NULL)
-		return (0);
+	if (dst == src)
+		return (dst);
 	if (src < dst)
 	{
 		while (len-- > 0)
