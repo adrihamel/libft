@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   main_split.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguerrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/18 16:47:34 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/05/24 21:16:04 by aguerrer         ###   ########.fr       */
+/*   Created: 2021/05/26 17:33:32 by aguerrer          #+#    #+#             */
+/*   Updated: 2021/05/26 17:34:45 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	main(void)
 {
-	size_t			i;
-	int				result;
-	unsigned char	*src;
-	unsigned char	*dst;
+	char	**tab;
+	
+	printf("%s", ft_split("  tripouille  42  ", ' '));
 
-	i = 0;
-	result = 0;
-	src = ((unsigned char *)s1);
-	dst = ((unsigned char *)s2);
-	while (i < n)
-	{
-		if (*(src + i) != *(dst + i))
-		{
-			result = *(src + i) - *(dst + i);
-			break ;
-		}
-		i++;
-	}
-	return (result);
 }

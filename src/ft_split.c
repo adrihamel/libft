@@ -6,64 +6,70 @@
 /*   By: aguerrer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 19:42:16 by aguerrer          #+#    #+#             */
-/*   Updated: 2021/05/25 20:05:43 by aguerrer         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:39:47 by aguerrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_numPalabras(const char *s, char c)
+static int	ft_numPalabras(char *str, char c)
 {
 	int	i;
 
 	i = 0;
-	while (*s != '\0')
-		if (*s++ && *s != c)
+	if (!*str)
+		return (0);
+	if (*(str + 1) != '\0' && *str != c)
+		i = 1;
+	while (*(str + 1) != '\0')
+	{
+		if (*str == c && *(str + 1) != c && *(str + 1) != '\0')
 			i++;
+		str++;
+	}
 	return (i);
 }
 
-static char	*ft_palabraIter(const char *s, char c)
+static void	ft_iteraPal(char *s, char c, int numP, char **str)
 {
-	char	*palabra;
-	int		i;
+	int	i;
+	int	j;
+	int	k;
+	int	l;
 
 	i = 0;
-	while (*(s + i) != '\0' && *(s + i) != c)
-		i++;
-	palabra = (char *)malloc((i + 1) * sizeof(char));
-	i = 0;
-	while (*(s + i) != '\0' && *(s + i) != c)
+	while (numP--)
 	{
-		*(palabra + i) = *(s + i);
-		i++;
+		while (*(s + i) == c && *(s + i) != '\0')
+			i++;
+		j = i;
+		while (*(s + i) != c && *(s + i) != '\0')
+			i++;
+		*str = (char *)malloc((i - j + 1) * sizeof(char));
+		k = 0;
+		l = j;
+		while (k + l < i)
+		{
+			*(*(str) + k++) = *(s + j);
+			*(*str + k) = '\0';
+			j++;
+		}
+		str++;
 	}
-	*(palabra + i) = '\0';
-	return (palabra);
+	*str = 0;
 }
 
 char	**ft_split(const char *s, char c)
 {
-	char	**str;
-	int		i;
+	size_t		numP;
+	char		**str;
 
 	if (s == NULL)
 		return (0);
-	str = (char **)malloc((ft_numPalabras(s, c) + 1) * sizeof(char *));
+	numP = ft_numPalabras((char *)s, c);
+	str = (char **)malloc((numP + 1) * sizeof(char *));
 	if (str == NULL)
 		return (0);
-	i = 0;
-	while (*s != '\0')
-	{
-		while (*s == c)
-			s++;
-		if (*s && *s != c)
-		{
-			*(str + i++) = ft_palabraIter(s, c);
-			while (*s && *s != c)
-				s++;
-		}
-	}
-	*(str + i) = NULL;
+	ft_iteraPal((char *)s, c, numP, str);
 	return (str);
 }
