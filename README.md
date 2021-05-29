@@ -1,5 +1,24 @@
-# libft
-Como estudiante de 42, este primer proyecto le va ha permitir consolidar lo adquirido durante la piscina. Va a volver a programar algunas funciones de la biblioteca estándar de C, al igual que otras funciones útiles que reutilizará a lo largo de su formación.
+## Libft (42cursus)
+
+Actual Status : finished
+
+Result : [![aguerrer's 42Project Score](https://badge42.herokuapp.com/api/project/aguerrer/Libft)](https://github.com/JaeSeoKim/badge42)
+
+## Usage
+
+```make all``` to compile without bonus functions.
+
+```make bonus``` to compile with bonuses.
+
+```make re``` to compile all and bonuses.
+
+## Tester
+
+1. https://github.com/alelievr/libft-unit-test
+
+2. https://github.com/ska42/libft-war-machine
+
+3. https://github.com/Tripouille/libftTester
 
 
-Score: 115
+[![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
